@@ -1,37 +1,35 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./login.css";
-import { Container, Form } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
+import { v4 as uuidV4 } from "uuid";
 
-function Login() {
-  const [resourceType, setResourceType] = useState("posts");
-  const [items, setItems] = useState([]);
+function Login({ onIdSubmit }) {
   const idRef = useRef();
 
-  useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
-      .then((response) => response.json())
-      .then((json) => setItems(json));
-  }, [resourceType]);
+  function handleSubmit(e) {
+    e.preventDefault();
+    onIdSubmit(idRef.current.value);
+  }
+
+  function createNewId() {
+    onIdSubmit(uuidV4());
+  }
 
   return (
-    <Container>
-      <Form>
+    <Container
+      className="align-items-center d-flex"
+      style={{ height: "100vh" }}
+    >
+      <Form onSubmit={handleSubmit} className="w-100">
         <Form.Group>
           <Form.Label>Enter Your Id</Form.Label>
           <Form.Control type="text" ref={idRef} required />
         </Form.Group>
+        <Button type="submit" className="me-2">
+          Login
+        </Button>
+        <Button onClick={createNewId} variant="secondary">Create A New Id</Button>
       </Form>
-      <br />
-      <div>
-        <button onClick={() => setResourceType("posts")}>Posts</button>
-        <button onClick={() => setResourceType("users")}>Users</button>
-        <button onClick={() => setResourceType("comments")}>Comments</button>
-      </div>
-      {items.map((item, i) => (
-        <div key={i}>
-            <p>{JSON.stringify(item)}</p>
-        </div>
-      ))}
     </Container>
   );
 }
