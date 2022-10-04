@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+// this file is so that the 'id' generated persists when the page refreshes or when we close our browser and come back;
+
 const PREFIX = "chat-app";
 
 function useLocalStorage(key, initialValue) {
@@ -9,6 +11,6 @@ function useLocalStorage(key, initialValue) {
 
     if (jsonVal !== null) return JSON.parse(jsonVal);
   });
-}
+};
 
 export default useLocalStorage;

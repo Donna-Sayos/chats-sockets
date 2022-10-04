@@ -10,6 +10,6 @@ function App() {
       <Login onIdSubmit={setId} />
     </>
   );
-}
+};
 
 export default App;

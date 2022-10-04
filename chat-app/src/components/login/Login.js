@@ -32,6 +32,6 @@ function Login({ onIdSubmit }) {
       </Form>
     </Container>
   );
-}
+};
 
 export default Login;
