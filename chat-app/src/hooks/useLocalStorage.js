@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; // In React 17, you no longer need to import React;
 
 // this file is so that the 'id' generated persists when the page refreshes or when we close our browser and come back;
 
@@ -9,8 +9,20 @@ function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
     const jsonVal = localStorage.getItem(prefixedKey);
 
-    if (jsonVal !== null) return JSON.parse(jsonVal);
+    if (jsonVal != null) return JSON.parse(jsonVal);
+    if (typeof initialValue === "function") {
+      return initialValue();
+    } else {
+      return initialValue;
+    }
   });
-};
+
+  // every time the key changes, this useEffect will override whatever saved data in the locaStorage;
+  useEffect(() => {
+    localStorage.setItem(prefixedKey, JSON.stringify(value));
+  }, [prefixedKey, value]);
+
+  return [value, setValue];
+}
 
 export default useLocalStorage;
