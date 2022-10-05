@@ -9,7 +9,8 @@ module.exports = {
     node: true,
   },
   parser: "@babel/eslint-parser",
-  parserOptions: {   
+  parserOptions: {
+    sourceType: "module",
     requireConfigFile: false,
   },
 };
