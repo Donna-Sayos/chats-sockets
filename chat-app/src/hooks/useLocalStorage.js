@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"; // In React 17, you no longer need 
 
 // this file is so that the 'id' generated persists when the page refreshes or when we close our browser and come back;
 
-const PREFIX = "chat-app"; // to organize data in localStorage; to know which info is from what app;
+const PREFIX = "chats-sockets"; // must be the EXACT name of the app;
+// to organize data in localStorage; to know which application the info came from;
 
 function useLocalStorage(key, initialValue) {
   const prefixedKey = PREFIX + key;
