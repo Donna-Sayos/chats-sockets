@@ -1,7 +1,7 @@
 import React from "react";
 
-function newConversationModal() {
+function NewConversationModal() {
   return <div>newConversationModal</div>;
 }
 
-export default newConversationModal;
+export default NewConversationModal;

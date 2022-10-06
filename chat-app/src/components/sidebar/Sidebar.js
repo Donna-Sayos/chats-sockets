@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { Tab, Nav, Button, Modal } from "react-bootstrap";
-import Contacts from "../contacts/Contacts";
-import Conversations from "../conversations/Conversations";
-import newContactModal from "../modals/newContactModal";
-import newConversationModal from "../modals/newConversationModal";
+import Contacts from "./contacts/Contacts";
+import Conversations from "./conversations/Conversations";
+import NewContactModal from "./modals/NewContactModal";
+import NewConversationModal from "./modals/NewConversationModal";
 
 const CONVERSATIONS_KEY = "conversations";
 const CONTACTS_KEY = "contacts";
 
 function Sidebar({ id }) {
   const [activeKey, setActiveKey] = useState(CONVERSATIONS_KEY);
-  const conversationsOpen = activeKey === CONVERSATIONS_KEY
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const conversationsOpen = activeKey === CONVERSATIONS_KEY;
+
+  function closeModal() {
+    setModalOpen(false);
+  }
 
   return (
     <div style={{ width: "250px" }} className="d-flex flex-column">
@@ -34,16 +40,22 @@ function Sidebar({ id }) {
         <div className="p-2 border-top border-end small">
           Your id: <span className="text-muted">{id}</span>
         </div>
-        <Button className="rounded-0" variant={conversationsOpen ? "outline-warning" : "outline-danger"} size="sm">
-            New {conversationsOpen ? "Conversation" : "Contact"}
+        <Button
+          className="rounded-0"
+          variant={conversationsOpen ? "outline-warning" : "outline-danger"}
+          size="sm"
+          onClick={() => setModalOpen(true)}
+        >
+          New {conversationsOpen ? "Conversation" : "Contact"}
         </Button>
       </Tab.Container>
 
-      <Modal>
-        {conversationsOpen ? 
-            <newConversationModal /> :
-            <newContactModal />
-        }
+      <Modal show={modalOpen} onHide={closeModal}>
+        {conversationsOpen ? (
+          <NewConversationModal closeModal={closeModal} />
+        ) : (
+          <NewContactModal closeModal={closeModal} />
+        )}
       </Modal>
     </div>
   );
