@@ -31,11 +31,12 @@ export function ConversationsProvider({ children }) {
       return { id: recipient, name };
     });
     const selected = index === selectedConversationIndex;
-    return { ...conversations, recipients, selected };
+    return { ...conversation, recipients, selected };
   });
 
   const value = {
     conversations: formattedConversations,
+    selectedConversation: formattedConversations[selectedConversationIndex],
     selectConversationIndex: setSelectedConversationIndex,
     createConversation,
   };
