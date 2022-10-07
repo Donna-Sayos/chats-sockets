@@ -1,0 +1,22 @@
+import React, { useContext, useEffect, useState } from "react";
+import io from "socket.io-client";
+
+const SocketContext = React.createContext();
+
+export function useSocket() {
+  return useContext(SocketContext);
+}
+
+export function SocketProvider({ id, children }) {
+  const [socket, setSocket] = useState();
+
+  useEffect(() => {
+    const newSocket = io('http://localhost:5002', { query: { id } });
+    setSocket(newSocket);
+
+    return () => newSocket.close(); // unsubscribe to prevent multiple socket connections to the server
+  }, [id]);
+  return (
+    <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>
+  );
+}
