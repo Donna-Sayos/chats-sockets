@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import "./login.css";
 import { Container, Form, Button } from "react-bootstrap";
 import { v4 as uuidV4 } from "uuid";
 
