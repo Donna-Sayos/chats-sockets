@@ -10,7 +10,9 @@ function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
     const jsonVal = localStorage.getItem(prefixedKey);
 
-    if (jsonVal != null) return JSON.parse(jsonVal);
+    if (jsonVal != null) {
+      return JSON.parse(jsonVal);
+    }
     if (typeof initialValue === "function") {
       return initialValue();
     } else {
