@@ -2,5 +2,5 @@
   $${\color{lightblue}Chat App}$$
 </h1>
 
-### *Created a messaging app using <kbd>Socket.io</kbd>, <kbd>React</kbd>, and <kbd>React Bootstrap</kbd>.*
+### *Created a messaging app using <kbd>Socket.IO</kbd>, <kbd>React</kbd>, and <kbd>React Bootstrap</kbd>.*
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
