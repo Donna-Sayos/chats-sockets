@@ -18,7 +18,7 @@ function App() {
       </ContactsProvider>
     </SocketProvider>
   );
-  return id ? dashboard : <Login onIdSubmit={setId} />;
-}
+  return id ? dashboard : <Login onIdSubmit={setId} />
+};
 
 export default App;

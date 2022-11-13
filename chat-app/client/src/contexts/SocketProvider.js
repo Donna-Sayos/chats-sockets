@@ -4,8 +4,8 @@ import io from "socket.io-client";
 const SocketContext = React.createContext();
 
 export function useSocket() {
-  return useContext(SocketContext);
-}
+  return useContext(SocketContext)
+};
 
 export function SocketProvider({ id, children }) {
   const [socket, setSocket] = useState();
@@ -18,5 +18,5 @@ export function SocketProvider({ id, children }) {
   }, [id]);
   return (
     <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>
-  );
-}
+  )
+};

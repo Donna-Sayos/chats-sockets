@@ -21,8 +21,8 @@ export function ConversationsProvider({ id, children }) {
   function createConversation(recipients) {
     setConversations((prevConvo) => {
       return [...prevConvo, { recipients, messages: [] }];
-    });
-  }
+    })
+  };
 
   const addMessageToConversation = useCallback(
     ({ recipients, text, sender }) => {
@@ -63,7 +63,7 @@ export function ConversationsProvider({ id, children }) {
     socket.emit("send-message", { recipients, text });
 
     addMessageToConversation({ recipients, text, sender: id });
-  }
+  };
 
   const formattedConversations = conversations.map((conversation, index) => {
     const recipients = conversation.recipients.map((recipient) => {
@@ -99,8 +99,8 @@ export function ConversationsProvider({ id, children }) {
     <ConversationsContext.Provider value={value}>
       {children}
     </ConversationsContext.Provider>
-  );
-}
+  )
+};
 
 function arrayEquality(a, b) {
   if (a.length !== b.length) return false;
@@ -110,5 +110,5 @@ function arrayEquality(a, b) {
 
   return a.every((element, index) => {
     return element === b[index];
-  });
-}
+  })
+};

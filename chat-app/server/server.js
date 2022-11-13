@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
         recipients: newRecipients,
         sender: id,
         text,
-      });
+      })
     });
-  });
+  })
 });

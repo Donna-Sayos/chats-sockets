@@ -26,6 +26,6 @@ function useLocalStorage(key, initialValue) {
   }, [prefixedKey, value]);
 
   return [value, setValue];
-}
+};
 
 export default useLocalStorage;
