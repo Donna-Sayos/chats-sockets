@@ -19,7 +19,7 @@ function OpenConversation() {
       text
     );
     setText(""); // clears out the input box after sending a message;
-  }
+  };
 
   return (
     <div className="d-flex flex-column flex-grow-1">
@@ -74,7 +74,7 @@ function OpenConversation() {
         </Form.Group>
       </Form>
     </div>
-  );
-}
+  )
+};
 
 export default OpenConversation;

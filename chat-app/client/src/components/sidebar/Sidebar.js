@@ -58,7 +58,7 @@ function Sidebar({ id }) {
         )}
       </Modal>
     </div>
-  );
-}
+  )
+};
 
 export default Sidebar;

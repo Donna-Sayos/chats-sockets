@@ -8,11 +8,11 @@ function Login({ onIdSubmit }) {
   function handleSubmit(e) {
     e.preventDefault();
     onIdSubmit(idRef.current.value);
-  }
+  };
 
   function createNewId() {
     onIdSubmit(uuidV4());
-  }
+  };
 
   return (
     <Container
@@ -30,7 +30,7 @@ function Login({ onIdSubmit }) {
         <Button onClick={createNewId} variant="secondary">Create A New Id</Button>
       </Form>
     </Container>
-  );
-}
+  )
+};
 
 export default Login;

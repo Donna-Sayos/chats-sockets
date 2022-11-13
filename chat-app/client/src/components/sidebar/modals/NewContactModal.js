@@ -12,7 +12,8 @@ function NewContactModal({ closeModal }) {
 
     createContact(idRef.current.value, nameRef.current.value);
     closeModal();
-  }
+  };
+  
   return (
     <>
       <Modal.Header closeButton>Create Contact</Modal.Header>
@@ -30,7 +31,7 @@ function NewContactModal({ closeModal }) {
         </Form>
       </Modal.Body>
     </>
-  );
-}
+  )
+};
 
 export default NewContactModal;

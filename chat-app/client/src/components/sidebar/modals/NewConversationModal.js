@@ -13,7 +13,7 @@ function NewConversationModal({ closeModal }) {
 
     createConversation(selectedContactIds);
     closeModal();
-  }
+  };
 
   function handleCheckboxChange(contactId) {
     setSelectedContactIds((prevSelectedContactIds) => {
@@ -24,8 +24,8 @@ function NewConversationModal({ closeModal }) {
       } else {
         return [...prevSelectedContactIds, contactId];
       }
-    });
-  }
+    })
+  };
 
   return (
     <>
@@ -46,7 +46,7 @@ function NewConversationModal({ closeModal }) {
         </Form>
       </Modal.Body>
     </>
-  );
-}
+  )
+};
 
 export default NewConversationModal;

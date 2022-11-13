@@ -18,7 +18,7 @@ function Conversations() {
         </ListGroup.Item>
       ))}
     </ListGroup>
-  );
-}
+  )
+};
 
 export default Conversations;
